@@ -5,6 +5,10 @@ Description:
 This tool is usefull for themeforest teams which share profit based on % of sales.
 This tool is usefull for team lead which have multiple developers in team. Each developer has personal % share agrement. Each developer create and support a bunch of items (themes).
 
+Requrements:
+- ZendFramework 2
+- Doctrine 2 ORM 
+- 
 Features:
 - add themeforest account(s)
 - import themeforest items (via API)
@@ -18,3 +22,4 @@ Features:
 Reports:
 - Developer performance
 - Item performance
+
