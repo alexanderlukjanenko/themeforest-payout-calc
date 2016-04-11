@@ -1,0 +1,23 @@
+<?php
+$title = 'Upload statements';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php if (isset($message)) : ?>
+    <div class="alert alert-danger" role="alert"><?php echo $message; ?></div>
+<?php endif; ?>
+
+    <form method="POST" name="upload-form" enctype="multipart/form-data" class="form" id="upload-form">
+        <fieldset class="form">
+            <label for="account">Account</label>
+            <select name="account" id="account" class="form-control">
+                <?php foreach($accounts as $acc): ?>
+                    <option value="<?php echo $acc->getId(); ?>"><?php echo $acc->getAccountName(); ?></option>
+                <?php endforeach; ?>
+            </select>
+            <label for="csv-file">Statements file</label>
+            <input type="file" name="csv-file" id="csv-file" class="form-control">
+            <input type="submit" name="submit" id="submitbutton" class="btn btn-default" value="Upload">
+        </fieldset>
+    </form>

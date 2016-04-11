@@ -1,0 +1,52 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+
+?>
+<div class="jumbotron">
+    <h1><?php echo sprintf($this->translate('%sAccounts%s'), '<span class="zf-green">', '</span>') ?></h1>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a href="<?php echo $this->url('account', array('action'=>'add'));?>">Add Account</a>
+
+                <?php if (isset($accounts)) : ?>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Account name</th>
+                            <th>API key</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <?php $i = 1; ?>
+                        <?php foreach($accounts as $account): ?>
+                            <tbody>
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <td><?php echo $account->getAccountName(); ?></td>
+                                <td><?php echo $account->getApiKey(); ?></td>
+                                <td>
+                                    <a href="<?php echo $this->url('account', array('action'=>'edit', 'id' => $account->getId()));?>">Edit</a> |
+                                    <a href="<?php echo $this->url('account', array('action'=>'delete', 'id' => $account->getId()));?>">Delete</a> |
+                                    <a href="<?php echo $this->url('item', array('action'=>'tfitems', 'id' => $account->getId()));?>">List Items</a> |
+                                    <a href="<?php echo $this->url('item', array('action'=>'import', 'id' => $account->getId()));?>">Import Items</a>
+<!--                                    |-->
+<!--                                    <a href="--><?php //echo $this->url('statement', array('action'=>'import', 'id' => $account->getId()));?><!--">Import Statements</a>-->
+                                </td>
+                            </tr>
+                            </tbody>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </table>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>

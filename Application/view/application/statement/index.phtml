@@ -1,0 +1,42 @@
+<div class="jumbotron">
+    <h1><?php echo sprintf($this->translate('%sStatements%s'), '<span class="zf-green">', '</span>') ?></h1>
+</div>
+
+<a href="<?php echo $this->url('statement', array('action'=>'upload-form'));?>">Import statements</a>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <?php if (isset($statementfiles)) : ?>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>File label</th>
+                            <th>Start date</th>
+                            <th>Stop date</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <?php $i = 1; ?>
+                        <?php foreach($statementfiles as $file): ?>
+                            <tbody>
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <td><span title="<?php echo $file->getFileName(); ?>"><?php echo $file->getFileLabel(); ?></span></td>
+                                <td><?php echo $file->getStartDateStr(); ?></td>
+                                <td><?php echo $file->getStopDateStr(); ?></td>
+                                <td>
+                                    <a href="<?php echo $this->url('statement', array('action'=>'delete', 'id' => $file->getId()));?>">Delete</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </table>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>

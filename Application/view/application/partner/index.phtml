@@ -1,0 +1,44 @@
+<div class="jumbotron">
+    <h1><?php echo sprintf($this->translate('%sPartner relations%s'), '<span class="zf-green">', '</span>') ?></h1>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <?php if (isset($partners)) : ?>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Developer</th>
+                            <th>Item</th>
+                            <th>Default Share, %</th>
+                            <th>Extended Support Share, %</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <?php $i = 1; ?>
+                        <?php foreach($partners as $partner): ?>
+                            <tbody>
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <td><?php echo $partner->getDeveloper()->getName(); ?></td>
+                                <td><?php echo $partner->getItem()->getName(); ?></td>
+                                <td><?php echo $partner->getShare(); ?></td>
+                                <td><?php echo $partner->getSupportShare(); ?></td>
+                                <td>
+                                    <a href="<?php echo $this->url('partner', array('action'=>'delete', 'id' => $partner->getId()));?>">Delete</a> |
+                                    <a href="<?php echo $this->url('partner', array('action'=>'edit', 'id' => $partner->getId()));?>">Edit</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </table>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+
+$title = 'Add new Account';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<form method="post">
+    Account Name: <input type="text" name="accountname"><br>
+    Api Key: <input type="text" name="apikey"><br>
+    <input type="submit" value="Submit">
+</form>

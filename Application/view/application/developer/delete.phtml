@@ -1,0 +1,13 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+
+$title = 'Delete Developer';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+Are you sure you want to delete developer "<?php echo $developer->getName(); ?>" ? <br/>
+<form method="post">
+    <input type="submit" value="Delete">
+</form>

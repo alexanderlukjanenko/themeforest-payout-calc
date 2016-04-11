@@ -1,0 +1,46 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+?>
+<div class="jumbotron">
+    <h1><?php echo sprintf($this->translate('%sItems%s '. $account), '<span class="zf-green">', '</span>') ?></h1>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <?php if (isset($items)) : ?>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Item ID</th>
+                            <th>Item name</th>
+                            <th>Price</th>
+<!--                            <th>Actions</th>-->
+                        </tr>
+                        </thead>
+                        <?php $i = 1; ?>
+                        <?php foreach($items['matches'] as $item): ?>
+                            <tbody>
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <td><a href="<?php echo $item['url']; ?>"><?php echo $item['id']; ?></a></td>
+                                <td><a href="<?php echo $item['previews']['live_site']['url']; ?>"><?php echo $item['name']; ?></a></td>
+                                <td><?php echo ($item['price_cents']/100); ?></td>
+<!--                                <td>-->
+<!--                                    <a href="--><?php //echo $this->url('item', array('action'=>'import', 'id' => $item['id']));?><!--" class="btn btn-default btn-xs" role="button">Import</a>-->
+<!--                                </td>-->
+                            </tr>
+                            </tbody>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </table>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>

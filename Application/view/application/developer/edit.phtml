@@ -1,0 +1,51 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+
+$title = 'Edit Developer';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<form method="post">
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" value="<?php echo $developer->getName(); ?>">
+                <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $developer->getId(); ?>">
+            </div>
+            <div class="form-group">
+                <label for="skrill">Skrill e-mail</label>
+                <input type="email" class="form-control" id="skrill" name="skrill" placeholder="Skrill Email" value="<?php echo $developer->getSkrill(); ?>">
+            </div>
+            <div class="form-group">
+                <label for="salary">Salary</label>
+                <input type="text" class="form-control" id="salary" name="salary" placeholder="999.99" value="<?php echo $developer->getSalary(); ?>">
+            </div>
+            <div class="form-group">
+                <label for="prepaid">PrePaid</label>
+                <input type="text" class="form-control" id="prepaid" name="prepaid" placeholder="999.99" value="<?php echo $developer->getPrepaid(); ?>">
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="checkbox items">
+
+                <?php foreach($items as $item): ?>
+                    <div class="item">
+                        <label title="<?php echo $item->getName(); ?>">
+                            <input type="checkbox" name="items[]" value="<?php echo $item->getId(); ?>" <?php if(in_array($item->getId(), $developeritems)) echo "checked"; ?>>
+                            <img src="<?php echo $item->getIcon(); ?>" alt="<?php echo $item->getName(); ?>" />
+                        </label>
+                    </div>
+                <?php endforeach; ?>
+
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </div>
+</form>

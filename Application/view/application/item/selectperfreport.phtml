@@ -1,0 +1,68 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+
+$title = 'Select Performance Period';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<form method="post">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="row">
+                    <div class='col-md-1'>
+                        Start date:
+                    </div>
+                    <div class='col-md-4'>
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker6'>
+                                <input type='text' class="form-control" id="start" name="start" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class='col-md-1'>
+                        Stop date:
+                    </div>
+                    <div class='col-md-4'>
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker7'>
+                                <input type='text' class="form-control" id="stop" name="stop" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#datetimepicker6').datetimepicker({
+                            format: 'YYYY-MM-DD'
+                        });
+                        $('#datetimepicker7').datetimepicker({
+                            format: 'YYYY-MM-DD',
+                            useCurrent: false //Important! See issue #1075
+                        });
+                        $("#datetimepicker6").on("dp.change", function (e) {
+                            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                        });
+                        $("#datetimepicker7").on("dp.change", function (e) {
+                            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </div>
+</form>

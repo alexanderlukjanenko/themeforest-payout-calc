@@ -1,0 +1,24 @@
+<?php
+$title = 'Add new Partner for - ' . $developer->getName();
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<form method="post" class="form">
+    <div class="form-group">
+        <label for="item">Item</label>
+        <select class="form-control" name="item" id="item">
+            <?php foreach($items as $item): ?>
+                <option value="<?php echo $item->getId(); ?>"><?php echo $item->getName(); ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="percent">%</label>
+        <input type="text" class="form-control" id="percent" name="percent" placeholder="10">
+        <label for="percent">% extended support</label>
+        <input type="text" class="form-control" id="support" name="support" placeholder="50">
+        <input type="hidden" name="developer" id="developer" value="<?php echo $developer->getId(); ?>">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>

@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+
+$title = 'Select Performance Period';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<form method="post">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="name">Period</label>
+                <select name="file" id="file" class="form-control">
+                    <?php foreach($periods as $period): ?>
+                        <option value="<?php echo $period[0]; ?>"><?php echo $period[1] . ' - ' . $period[2]; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </div>
+</form>

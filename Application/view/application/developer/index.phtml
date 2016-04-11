@@ -1,0 +1,61 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+
+?>
+
+<div class="jumbotron">
+    <h1><?php echo sprintf($this->translate('%sDevelopers%s'), '<span class="zf-green">', '</span>') ?></h1>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a href="<?php echo $this->url('developer', array('action'=>'add'));?>">Add Developer</a>
+
+                <?php if (isset($developers)) : ?>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Skrill</th>
+                            <th>Salary</th>
+                            <th>PrePaid</th>
+                            <th>Items</th>
+                            <th>Partner Items</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <?php $i = 1; ?>
+                        <?php foreach($developers as $developer): ?>
+                            <tbody>
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <td><?php echo $developer->getName(); ?></td>
+                                <td><?php echo $developer->getSkrill(); ?></td>
+                                <td><?php echo $developer->getSalary(); ?></td>
+                                <td><?php echo $developer->getPrepaid(); ?></td>
+                                <td><?php echo $developer->getItemsCount(); ?></td>
+                                <td><?php echo $partneritems[$developer->getId()]; ?></td>
+                                <td>
+                                    <a href="<?php echo $this->url('developer', array('action'=>'edit', 'id' => $developer->getId()));?>">Edit</a> |
+                                    <a href="<?php echo $this->url('developer', array('action'=>'delete', 'id' => $developer->getId()));?>">Delete</a> |
+                                    <a href="<?php echo $this->url('partner', array('action'=>'add', 'id' => $developer->getId()));?>">Add partner</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </table>
+                <?php endif; ?>
+                <br>
+                <a href="<?php echo $this->url('developer', array('action'=>'selectpayout'));?>" class="btn btn-default">Preview Payouts</a>
+                <a href="<?php echo $this->url('developer', array('action'=>'selectperf'));?>" class="btn btn-primary">Preview Developer Performance</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+?>
+<div class="jumbotron">
+    <h1><?php echo sprintf($this->translate('%sItems%s'), '<span class="zf-green">', '</span>') ?></h1>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a href="<?php echo $this->url('item', array('action'=>'selectperf'));?>" class="btn btn-primary">Preview Item Performance</a>
+                <?php if (isset($items)) : ?>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Item ID</th>
+                            <th>Item name</th>
+                            <th>Price</th>
+                            <th>Icon</th>
+                            <th>Author</th>
+                        </tr>
+                        </thead>
+                        <?php $i = 1; ?>
+                        <?php foreach($items as $item): ?>
+                            <tbody>
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <td><a href="<?php echo $item->getUrl(); ?>"><?php echo $item->getIdtf(); ?></a></td>
+                                <td><?php echo $item->getName(); ?></td>
+                                <td><?php echo $item->getPrice(); ?></td>
+                                <td><img src="<?php echo $item->getIcon(); ?>" alt=""/></td>
+                                <td><img src="<?php echo $item->getAuthorIcon(); ?>" alt=""/></td>
+                            </tr>
+                            </tbody>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </table>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>

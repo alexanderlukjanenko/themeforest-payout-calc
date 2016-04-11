@@ -1,0 +1,49 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+
+$title = 'Performance';
+$this->headTitle($title);
+?>
+
+    <div class="jumbotron">
+        <h1><?php echo sprintf($this->translate('%s%s%s'), $title, '<span class="zf-green">', '</span>') ?></h1>
+    </div>
+
+    <h2>Period: <?php echo $payouts->getPeriodText(); ?> </h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <?php if (isset($payouts)) : ?>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Payout</th>
+                                <th>Items Net sales</th>
+                                <th>Profit</th>
+                            </tr>
+                            </thead>
+                            <?php $i = 1; ?>
+                            <?php foreach($payouts->getPayouts() as $payout): ?>
+                                <tbody>
+                                <tr>
+                                    <td><?php echo $i; ?></td>
+                                    <td><?php echo $payout->getDeveloper()->getName(); ?></td>
+                                    <td><?php echo sprintf('%.2f',$payout->getTotal()); ?></td>
+                                    <td><?php echo sprintf('%.2f',$payout->getDeveloperItemsNetSales()); ?></td>
+                                    <td><?php echo sprintf('%.2f',($payout->getDeveloperItemsNetSales() - $payout->getTotal())); ?></td>
+                                </tr>
+                                </tbody>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
+                        </table>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,63 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+
+?>
+
+<div class="jumbotron">
+    <h1><?php echo sprintf($this->translate('Welcome to %sThemeforest Sales%s'), '<span class="zf-green">', '</span>') ?></h1>
+</div>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $this->translate('Import') ?></h3>
+            </div>
+            <div class="panel-body">
+                <p><?php echo sprintf($this->translate('Import CSV files'), '<a href="">', '</a>') ?></p>
+                <p><a class="btn btn-success pull-right" href="<?php echo $this->url('statement', array('action' => 'upload-form')); ?>"><?php echo $this->translate('Import') ?> &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $this->translate('Developers') ?></h3>
+            </div>
+            <div class="panel-body">
+                <p><?php echo sprintf($this->translate('Configure developers'), '<a href="">', '</a>') ?></p>
+                <p><a class="btn btn-success pull-right" href="<?php echo $this->url('developer'); ?>"><?php echo $this->translate('View developers') ?> &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $this->translate('Reports') ?></h3>
+            </div>
+            <div class="panel-body">
+                <p><a class="btn btn-success pull-right" href="<?php echo $this->url('item', array('action' => 'selectperfreport') ); ?>"><?php echo $this->translate('Item Performance') ?> &raquo;</a></p>
+                <br>
+                <br>
+                <p><a class="btn btn-success pull-right" href="<?php echo $this->url('developer', array('action' => 'selectperfreport')); ?>"><?php echo $this->translate('Developer Performance') ?> &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $this->translate('Items') ?></h3>
+            </div>
+            <div class="panel-body">
+                <p><?php echo sprintf($this->translate('Configure TF Items'), '<a href="">', '</a>') ?></p>
+                <p><a class="btn btn-success pull-right" href="<?php echo $this->url('item'); ?>" target="_blank"><?php echo $this->translate('View items') ?> &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+</div>

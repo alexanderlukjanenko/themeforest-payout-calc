@@ -1,0 +1,14 @@
+<?php
+/**
+ * Copyright © 2015 Alexander Lukjanenko (alexander.lukjanenko@gmail.com)
+ */
+
+$title = 'Edit Account';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<form method="post">
+    Account Name:       <input type="text" name="accountname" value="<?php echo $account->getAccountName(); ?>"><br>
+    API Key:            <input type="text" name="apikey" value="<?php echo $account->getApiKey(); ?>"><br>
+    <input type="submit" value="Submit">
+</form>
