@@ -3,7 +3,7 @@
 Description:
 
 This tool is usefull for themeforest teams which share profit based on partnership agreement (% of sales).
-This tool is usefull for account owner which have multiple developers in team. Each developer has personal % share agrement. Each developer create and support a bunch of items (themes).
+This tool is usefull for account owner which has multiple developers in team. Each developer has personal % share agrement. Each developer create and support several items (themes).
 
 Requrements:
 - ZendFramework 2
